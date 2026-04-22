@@ -1,0 +1,13 @@
+# GTD Dashboard Configuration
+# Place this file in your knowledge graph root or home directory
+
+knowledge_graph_path: C:\Users\ThomasBray\OneDrive - Midtown Technology Group LLC\Knowledge
+default_stale_days: 30
+default_waiting_warning_days: 7
+default_waiting_critical_days: 14
+max_table_rows: 100
+truncate_content_at: 80
+show_aging_indicators: true
+parallel_parsing: true
+max_workers: null
+default_export_format: json
