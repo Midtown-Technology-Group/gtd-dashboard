@@ -262,3 +262,7 @@ AGPL-3.0
 ## Author
 
 Thomas Bray - MSP/IT Consultant at Midtown Technology Group
+
+## Windows MSI
+
+Tagged releases build a per-machine Windows MSI that installs `gtd-dashboard.exe` under `Program Files` and adds that install directory to the system PATH. Installing or uninstalling the MSI requires an elevated prompt.

@@ -1,0 +1,41 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+    Name="GTD Dashboard"
+    Manufacturer="Midtown Technology Group LLC"
+    Version="$(var.Version)"
+    UpgradeCode="{BFBE909E-9435-5E60-86D5-12632E70A13D}"
+    InstallerVersion="500"
+    Scope="perMachine">
+
+    <SummaryInformation Description="GTD Dashboard installer" Manufacturer="Midtown Technology Group LLC" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of GTD Dashboard is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLROOT" Name="Midtown Technology Group">
+        <Directory Id="INSTALLFOLDER" Name="GTD Dashboard" />
+      </Directory>
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="GTD Dashboard" Level="1">
+      <ComponentGroupRef Id="ToolComponents" />
+    </Feature>
+
+    <ComponentGroup Id="ToolComponents" Directory="INSTALLFOLDER">
+      <Component Id="ToolExecutableComponent" Guid="*">
+        <File Id="ToolExecutable" Source="$(var.BinDir)\gtd-dashboard.exe" KeyPath="yes" />
+      </Component>
+      <Component Id="PathComponent" Guid="{FE9B2AEC-C4A2-5D28-930B-97FAE2E088C9}">
+        <CreateFolder />
+        <Environment
+          Id="ToolPathEntry"
+          Action="set"
+          Name="PATH"
+          Part="last"
+          Permanent="no"
+          System="yes"
+          Value="[INSTALLFOLDER]" />
+      </Component>
+    </ComponentGroup>
+  </Package>
+</Wix>
