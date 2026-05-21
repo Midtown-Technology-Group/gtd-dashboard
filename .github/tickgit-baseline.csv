@@ -1,0 +1,13 @@
+text,file_path,start_line,start_position,end_line,end_position,author,author_email,author_sha,author_time
+| `todo` | Show TODO (next actions) |,README.md,88,1,88,37,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+- TODO Next action to take,README.md,160,1,160,26,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+- NEXT Alternative for TODO,README.md,161,1,161,27,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+- [ ] TODO: Task with explicit marker,README.md,173,1,173,37,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+- [ ] Implicit TODO (no marker),README.md,174,1,174,31,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+- TODO [[projects/bifrost]] Fix the API,README.md,184,1,184,39,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+- TODO [[people/John-Smith]] Review with John,README.md,185,1,185,45,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+"Alias for TODO",src/gtd_dashboard/models.py,20,21,21,-1,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+"For non-waiting tasks, check if they're old TODOs",src/gtd_dashboard/models.py,98,10,99,-1,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+"TODO/TODO - next action",src/gtd_dashboard/parser.py,24,10,25,-1,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+"Checkbox style with markers: - [ ] TODO: task or - [ ] NOW task",src/gtd_dashboard/parser.py,34,10,35,-1,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
+"Checkbox without explicit marker (infer TODO)",src/gtd_dashboard/parser.py,36,10,37,-1,Thomas Bray,thomas@midtowntg.com,87455d6794d4b9eb5b460a467c5a97a9935a52bf,2026-04-22T15:35:55-04:00
