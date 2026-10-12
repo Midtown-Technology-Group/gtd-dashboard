@@ -17,7 +17,7 @@ class TaskStatus(str, Enum):
     DOING = "DOING"  # Alias for NOW
     LATER = "LATER"  # Scheduled for later
     TODO = "TODO"  # Next action
-    NEXT = "NEXT"  # Alias for TODO
+    NEXT = "NEXT"  # Alias for the next-action marker
     WAITING = "WAITING-FOR"  # Waiting for someone/something
     WAITING_FOR = "WAITING-FOR"
     SOMEDAY = "SOMEDAY"  # Someday/maybe
@@ -95,7 +95,7 @@ class Task:
         age = self.age_days
         if age is not None:
             return age >= stale_days
-        # For non-waiting tasks, check if they're old TODOs
+        # For non-waiting tasks, check if they're old next-actions
         if self.status in (TaskStatus.TODO, TaskStatus.LATER):
             days_since_created = (datetime.now() - self.date).days
             return days_since_created >= stale_days

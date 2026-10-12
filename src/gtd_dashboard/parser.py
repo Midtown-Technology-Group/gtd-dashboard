@@ -21,7 +21,7 @@ class TaskParser:
         (r'(?:^|\n)\s*-?\s*(NOW|DOING|IN-PROGRESS)\s+(.*)$', TaskStatus.NOW),
         # LATER - scheduled
         (r'(?:^|\n)\s*-?\s*LATER\s+(.*)$', TaskStatus.LATER),
-        # TODO/TODO - next action
+        # NEXT marker - next action
         (r'(?:^|\n)\s*-?\s*(?:TODO|NEXT)\s+(.*)$', TaskStatus.TODO),
         # WAITING-FOR - waiting
         (r'(?:^|\n)\s*-?\s*WAITING(?:-FOR)?\s+(.*)$', TaskStatus.WAITING),
@@ -31,9 +31,9 @@ class TaskParser:
         (r'(?:^|\n)\s*-?\s*DONE\s+(.*)$', TaskStatus.DONE),
         # CANCELLED
         (r'(?:^|\n)\s*-?\s*CANCELLED\s+(.*)$', TaskStatus.CANCELLED),
-        # Checkbox style with markers: - [ ] TODO: task or - [ ] NOW task
+        # Checkbox style with markers: e.g. "- [ ] NEXT: task" or "- [ ] NOW task"
         (r'(?:^|\n)\s*- \[.]\s*(NOW|DOING|LATER|TODO|NEXT|WAITING|WAITING-FOR|SOMEDAY|MAYBE|DONE|CANCELLED)[:\s]+(.*)$', None),
-        # Checkbox without explicit marker (infer TODO)
+        # Checkbox without explicit marker (infer next-action)
         (r'(?:^|\n)\s*- \[ ]\s+(.*)$', TaskStatus.TODO),
         # Completed checkbox (infer DONE)
         (r'(?:^|\n)\s*- \[[xX]]\s+(.*)$', TaskStatus.DONE),
