@@ -61,6 +61,9 @@ class Task:
         # Extract [[projects/name]] or [[project]] links
         project_matches = re.findall(r'\[\[projects/([^\]]+)\]\]|\[\[([^\]]+)\]\]', self.content)
         for match in project_matches:
+            # Person links belong to person metadata, not the generic project fallback.
+            if match[1].startswith(("people/", "people.")):
+                continue
             proj = match[0] or match[1]
             if proj and not self.project:
                 self.project = proj
