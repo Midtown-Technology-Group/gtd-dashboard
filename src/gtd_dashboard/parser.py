@@ -111,6 +111,9 @@ class TaskParser:
                             'CANCELLED': TaskStatus.CANCELLED,
                         }
                         status = status_map.get(status_str, TaskStatus.TODO)
+                        # A checked box completes the task even if its old marker remains.
+                        if re.match(r"\s*- \[[xX]\]", line):
+                            status = TaskStatus.DONE
                     else:
                         # Status is predetermined
                         status = default_status

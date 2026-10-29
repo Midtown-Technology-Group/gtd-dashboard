@@ -61,6 +61,9 @@ class Task:
         # Extract [[projects/name]] or [[project]] links
         project_matches = re.findall(r'\[\[projects/([^\]]+)\]\]|\[\[([^\]]+)\]\]', self.content)
         for match in project_matches:
+            # Person links belong to person metadata, not the generic project fallback.
+            if match[1].startswith(("people/", "people.")):
+                continue
             proj = match[0] or match[1]
             if proj and not self.project:
                 self.project = proj
@@ -90,8 +93,12 @@ class Task:
         return None
     
     @property
-    def is_stale(self, stale_days: int = 30) -> bool:
-        """Check if task is stale (30+ days old without status change)."""
+    def is_stale(self) -> bool:
+        """Check if task is stale using the default 30-day threshold."""
+        return self.stale_for(30)
+
+    def stale_for(self, stale_days: int) -> bool:
+        """Check staleness against a requested threshold in days."""
         age = self.age_days
         if age is not None:
             return age >= stale_days

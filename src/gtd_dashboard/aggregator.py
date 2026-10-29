@@ -53,7 +53,7 @@ class TaskAggregator:
     
     def stale(self, days: int = 30) -> list[Task]:
         """Get stale tasks (tasks that haven't moved in X days)."""
-        return [t for t in self.tasks if t.is_stale]
+        return [t for t in self.tasks if t.stale_for(days)]
     
     def waiting_with_aging(self, max_age: Optional[int] = None) -> list[Task]:
         """Get WAITING-FOR tasks sorted by age."""
