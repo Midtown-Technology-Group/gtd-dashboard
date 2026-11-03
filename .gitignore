@@ -58,3 +58,6 @@ tasks-export/
 # OS
 .DS_Store
 Thumbs.db
+
+# Reviewed local publication guide.
+!/SECRET-SCANNING.md
