@@ -9,3 +9,12 @@ Keep Logseq status semantics, scheduled dates, waiting-item age, parallel parsin
 An operator's Knowledge graph, task exports, and `.gtd-dashboard.yaml` can contain private customer or personal information. Do not commit them, traverse unrelated OneDrive content, or initialize/rewrite a real graph as a development check. Configuration examples in README name a workstation path; derive the actual assigned graph from explicit configuration instead of treating that path as universal.
 
 Windows MSI release automation lives in `.github/workflows/release-msi.yml`; source checks do not authorize publishing a release or installing over an operator's tool. Report inspected configuration, executed checks, and actual packaging/runtime evidence separately.
+
+## Secret gate before publication
+
+Before every push and PR creation/update, commit the complete candidate and run
+`python3 scripts/secret_gate.py` (native Windows: `python`). Require exit 0;
+missing tooling/authentication, scan errors and skipped scans block publication.
+Then run the existing repository gates. Repeat after changing outgoing commits.
+See [secret scanning](SECRET-SCANNING.md) for base selection, new branches,
+pre-push input and prerequisites. Preserve GitGuardian App, CI and Gitleaks checks.
